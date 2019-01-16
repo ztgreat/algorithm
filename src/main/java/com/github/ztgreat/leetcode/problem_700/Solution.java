@@ -1,29 +1,46 @@
 package com.github.ztgreat.leetcode.problem_700;
 
 
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Stack;
+
 /**
- * 给定一个元素,如果该二叉树中有该元素,那么返回以该元素为根的子树
+ * 前序遍历 n 叉树
+ * tips:题目不建议用递归方式
  */
-class TreeNode {
-     int val;
-     TreeNode left;
-     TreeNode right;
-     TreeNode(int x) { val = x; }
+class Node {
+    public int val;
+    public List<Node> children;
+
+    public Node() {}
+
+    public Node(int _val,List<Node> _children) {
+        val = _val;
+        children = _children;
+    }
 }
 
 class Solution {
 
-    public TreeNode searchBST(TreeNode root, int val) {
+    public List<Integer> preorder(Node root) {
+
+        List<Integer>res = new LinkedList<Integer>();
+        Stack<Node>stack=new Stack<Node>();
+        Node p = root;
         if(root==null){
-            return null;
+            return  res;
         }
-        if(root.val == val){
-            return root;
+        stack.push(p);
+        while (!stack.isEmpty()){
+            p=stack.pop();
+            res.add(p.val);
+            if(p.children!=null){
+                for (int i = p.children.size() - 1; i >= 0; i--) {
+                    stack.push(p.children.get(i));
+                }
+            }
         }
-        TreeNode temp = searchBST(root.left,val);
-        if(temp==null){
-            temp=searchBST(root.right,val);
-        }
-        return  temp;
+        return res;
     }
 }
