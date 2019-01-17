@@ -6,7 +6,7 @@ For example, given a `3-ary` tree:
 
  
 
-![img](https://assets.leetcode.com/uploads/2018/10/12/narytreeexample.png)
+![img](./narytreeexample.png)
 
  
 
