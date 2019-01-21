@@ -1,28 +1,32 @@
-1. Invert a binary tree.
-
-   **Example:**
-
-   Input:
-
-   ```
-        4
-      /   \
-     2     7
-    / \   / \
-   1   3 6   9
-   ```
-
-   Output:
-
-   ```
-        4
-      /   \
-     7     2
-    / \   / \
-   9   6 3   1
-   ```
-
-   **Trivia:**
-   This problem was inspired by [this original tweet](https://twitter.com/mxcl/status/608682016205344768) by [Max Howell](https://twitter.com/mxcl):
-
-   > Google: 90% of our engineers use the software you wrote (Homebrew), but you can’t invert a binary tree on a whiteboard so f*** off.
+1. > Given a Binary Search Tree and a target number, return true if there exist two elements in the BST such that their sum is equal to the given target.
+   >
+   > **Example 1:**
+   >
+   > ```
+   > Input: 
+   >     5
+   >    / \
+   >   3   6
+   >  / \   \
+   > 2   4   7
+   >
+   > Target = 9
+   >
+   > Output: True
+   >
+   > ```
+   >
+   > **Example 2:**
+   >
+   > ```
+   > Input: 
+   >     5
+   >    / \
+   >   3   6
+   >  / \   \
+   > 2   4   7
+   >
+   > Target = 28
+   >
+   > Output: False
+   > ```
