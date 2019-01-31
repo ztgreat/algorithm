@@ -2,41 +2,44 @@ package com.github.ztgreat.leetcode.problem_563;
 
 
 /**
- * 判断一颗二叉树 中的元素是否完全一样
+ * 对于二叉树中的每一个节点,计算其左右子树节点和 的差值(绝对值),累加
  */
 class TreeNode {
-     int val;
-     TreeNode left;
-     TreeNode right;
-     TreeNode(int x) { val = x; }
+    int val;
+    TreeNode left;
+    TreeNode right;
+    TreeNode(int x) { val = x; }
 }
 
 class Solution {
 
-    private Boolean flag;
-
-    public boolean isUnivalTree(TreeNode root) {
-        flag=true;
-        if(root==null){
-            return true;
-        }
-        isUnivalTree(root,root.val);
-        return flag;
+    private  int sum =0;
+    public int findTilt(TreeNode root) {
+        sum=0;
+        postorder(root);
+        return sum;
     }
-    public void isUnivalTree(TreeNode root, int value) {
+    /**
+     * 后序遍历
+     * @param root
+     * @return
+     */
+    public int postorder(TreeNode root) {
 
         if(root==null){
-            return;
+            return 0;
         }
-        if(root.val != value){
-            flag=false;
-            return;
+        if(root.left == root.right && root.left ==null){
+            return root.val;
         }
-        if (flag){
-            isUnivalTree(root.left,value);
+        int left=postorder(root.left);
+        int right=postorder(root.right);
+
+        if(left>=right){
+            sum+=left-right;
+        }else{
+            sum+=right-left;
         }
-        if (flag){
-            isUnivalTree(root.right,value);
-        }
+        return left+right+root.val;
     }
 }
