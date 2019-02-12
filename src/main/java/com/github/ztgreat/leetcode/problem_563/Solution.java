@@ -2,7 +2,7 @@ package com.github.ztgreat.leetcode.problem_563;
 
 
 /**
- * 对于二叉树中的每一个节点,计算其左右子树节点和 的差值(绝对值),累加
+ * 树直径问题
  */
 class TreeNode {
     int val;
@@ -13,33 +13,24 @@ class TreeNode {
 
 class Solution {
 
-    private  int sum =0;
-    public int findTilt(TreeNode root) {
-        sum=0;
-        postorder(root);
-        return sum;
+    private int deep;
+    public int diameterOfBinaryTree(TreeNode root) {
+        deep=0;
+        search(root);
+        return deep;
     }
-    /**
-     * 后序遍历
-     * @param root
-     * @return
-     */
-    public int postorder(TreeNode root) {
 
+    public int search(TreeNode root){
         if(root==null){
+            //倒过来计数
             return 0;
         }
-        if(root.left == root.right && root.left ==null){
-            return root.val;
-        }
-        int left=postorder(root.left);
-        int right=postorder(root.right);
+        int left = search(root.left);
+        int right = search(root.right);
 
-        if(left>=right){
-            sum+=left-right;
-        }else{
-            sum+=right-left;
+        if(left+right>deep){
+            deep=left+right;
         }
-        return left+right+root.val;
+        return left > right ? left + 1 : right + 1;
     }
 }
