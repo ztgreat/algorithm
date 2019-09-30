@@ -29,4 +29,7 @@ class Solution {
         return dp[m-1][n-1];
 
     }
+
+    //方法2
+    // C(n-1+m-1,n-1),总共需要走n-1+m-1步，其中 n-1 是 横着走的
 }
