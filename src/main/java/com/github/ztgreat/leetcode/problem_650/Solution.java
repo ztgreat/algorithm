@@ -1,4 +1,4 @@
-package com.github.ztgreat.leetcode.problem_650.problem_96;
+package com.github.ztgreat.leetcode.problem_650;
 
 
 class Solution {
