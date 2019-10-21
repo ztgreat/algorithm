@@ -14,6 +14,7 @@ class Solution {
         if (n == 0) {
             return 0;
         }
+
         Map<Integer, Integer> map = new HashMap<Integer, Integer>(n);
         //dp[i][j] 的含义 为 A[?]+A[i]=A[j]
         int[][] dp = new int[n][n];
@@ -28,20 +29,14 @@ class Solution {
                 if (k == null) {
                     continue;
                 }
-
-                if (A[k] + A[i] > A[j]) {
-                    break;
+                if (dp[i][j] == 0) {
+                    dp[i][j] = 3;
+                }
+                dp[i][j] = Math.max(dp[i][j], dp[k][i] + 1);
+                if (max < dp[i][j]) {
+                    max = dp[i][j];
                 }
 
-                if (A[k] + A[i] == A[j]) {
-                    if (dp[i][j] == 0) {
-                        dp[i][j] = 3;
-                    }
-                    dp[i][j] = Math.max(dp[i][j], dp[k][i] + 1);
-                    if (max < dp[i][j]) {
-                        max = dp[i][j];
-                    }
-                }
             }
         }
         return max;
