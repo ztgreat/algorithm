@@ -7,6 +7,7 @@ class Solution {
         if (s == null || s.length() == 1 || s.length() == 0) {
             return s;
         }
+        // dp[i][j] 表示 s[i]~s[j] 是否 是回文串
         boolean[][] dp = new boolean[s.length()][s.length()];
         int n = s.length();
         int start = 0, end = 0;
