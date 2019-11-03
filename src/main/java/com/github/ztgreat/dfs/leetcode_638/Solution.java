@@ -1,4 +1,4 @@
-package com.github.ztgreat.leetcode.problem_638;
+package com.github.ztgreat.dfs.leetcode_638;
 
 
 import java.util.*;

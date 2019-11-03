@@ -1,4 +1,4 @@
-package com.github.ztgreat.leetcode.problem_897;
+package com.github.ztgreat.dfs.leetcode_897;
 
 
 /**

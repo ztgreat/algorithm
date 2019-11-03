@@ -1,4 +1,4 @@
-package com.github.ztgreat.leetcode.problem_872;
+package com.github.ztgreat.dfs.leetcode_872;
 
 
 import java.util.ArrayList;
