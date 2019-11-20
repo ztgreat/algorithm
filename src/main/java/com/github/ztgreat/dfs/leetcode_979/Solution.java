@@ -11,6 +11,10 @@ class TreeNode {
     }
 }
 
+/**
+ * 多的就要移走
+ * 不够的就要先欠着 为 -1
+ */
 class Solution {
 
     private int ans;
@@ -18,33 +22,39 @@ class Solution {
     public int distributeCoins(TreeNode root) {
 
         ans = 0;
-        order(root);
+        postOrder(root);
         return ans;
     }
 
     // 后序遍历
-    public int order(TreeNode root) {
+    private void postOrder(TreeNode root) {
 
         if (root == null) {
-            return 0;
+            return;
         }
-        int l = order(root.left);
-        int r = order(root.right);
-
+        postOrder(root.left);
+        postOrder(root.right);
         if (root.left != null) {
-
-            if (root.left.val == 0) {
-                root.val -= 1;
-
-            }
-
-            if (root.left.val > 1) {
-                root.val -= (root.left.val - 1);
-            }
-
+            cal(root, root.left);
         }
+        if (root.right != null) {
+            cal(root, root.right);
+        }
+    }
 
+    private void cal(TreeNode root, TreeNode child) {
 
-        return l;
+        if (child.val == 0) {
+            root.val -= 1;
+            ans++;
+        }
+        if (child.val > 1) {
+            root.val += (child.val - 1);
+            ans += (child.val - 1);
+        }
+        if (child.val < 0) {
+            root.val += (child.val - 1);
+            ans += Math.abs(child.val) + 1;
+        }
     }
 }
