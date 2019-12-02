@@ -11,7 +11,6 @@ class Solution {
     // 超时了
     public boolean canPartitionKSubsets(int[] nums, int k) {
 
-
         int sum = 0;
         ans = false;
         for (int i = 0; i < nums.length; i++) {
@@ -56,9 +55,9 @@ class Solution {
         }
 
     }
-    public static void main(String[] args){
 
-        int[] a={605,454,322,218,8,19,651,2220,175,710,2666,350,252,2264,327,1843};
-        System.out.println(new Solution().canPartitionKSubsets(a,4));
+    public static void main(String[] args) {
+        int[] a = {4, 5, 3, 2, 5, 5, 5, 1, 5, 5, 5, 5, 5, 5, 5, 5};
+        System.out.println(new Solution().canPartitionKSubsets(a, 14));
     }
 }
