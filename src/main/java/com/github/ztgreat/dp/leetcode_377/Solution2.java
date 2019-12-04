@@ -4,36 +4,36 @@ package com.github.ztgreat.dp.leetcode_377;
 import java.util.Arrays;
 
 /**
- * 尝试用dfs 来做
- * 普通dfs 会超时
+ * 记忆化dfs
  */
 class Solution2 {
 
-    private int ans;
     public int combinationSum4(int[] nums, int target) {
 
-        ans = 0;
+        int[] arr = new int[target + 1];
+        Arrays.fill(arr, -1);
+        // 排个序，可以优化
         Arrays.sort(nums);
-        dfs(nums, target, 0);
-        return ans;
-
+        return dfs(nums, arr, target);
     }
 
-    public void dfs(int[] nums, int target, int current) {
+    public int dfs(int[] nums, int[] arr, int target) {
 
-        if (current == target) {
-            ans++;
-            return;
+        if (arr[target] != -1) {
+            return arr[target];
         }
+        if (target == 0) {
+            return 1;
+        }
+        int result = 0;
         for (int i = 0; i < nums.length; i++) {
-
-            if (current + nums[i] <= target) {
-                dfs(nums, target, current + nums[i]);
+            if (target >= nums[i]) {
+                result += dfs(nums, arr, target - nums[i]);
             } else {
-                return;
+                break;
             }
 
         }
-
+        return arr[target] = result;
     }
 }

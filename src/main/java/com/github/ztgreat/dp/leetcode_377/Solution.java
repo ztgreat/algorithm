@@ -1,28 +1,39 @@
-package com.github.ztgreat.dp.leetcode_377.leetcode_309;
+package com.github.ztgreat.dp.leetcode_377;
 
 
+import java.util.Arrays;
+
+/**
+ * 尝试用dfs 来做
+ * 普通dfs 会超时
+ */
 class Solution {
 
-    public int maxProfit(int[] prices) {
+    private int ans;
 
-        int n = prices.length;
-        if(n==0){
-            return 0;
+    public int combinationSum4(int[] nums, int target) {
+
+        ans = 0;
+        Arrays.sort(nums);
+        dfs(nums, target, 0);
+        return ans;
+
+    }
+
+    public void dfs(int[] nums, int target, int current) {
+
+        if (current == target) {
+            ans++;
+            return;
         }
+        for (int i = 0; i < nums.length; i++) {
 
-        // dp[i][0] 表示 第 i 天 手里 没有股票 时的最大收益
-        // dp[i][1] 表示 第 i 天 手里 有股票 时的最大收益
-        // 显然 手里 没有 股票 时  收益 应该才是 最大的
-        int[][] dp = new int[n][2];
-        dp[0][1]=-prices[0];
-        for (int i = 1; i < n; i++) {
-            dp[i][0] = Math.max(dp[i - 1][0], dp[i - 1][1] + prices[i]);
-            if (i - 2 >= 0) {
-                dp[i][1] = Math.max(dp[i - 1][1], dp[i - 2][0] - prices[i]);
+            if (current + nums[i] <= target) {
+                dfs(nums, target, current + nums[i]);
             } else {
-                dp[i][1] = Math.max(dp[i - 1][1], dp[i - 1][0] - prices[i]);
+                return;
             }
         }
-        return dp[n-1][0];
+
     }
 }
