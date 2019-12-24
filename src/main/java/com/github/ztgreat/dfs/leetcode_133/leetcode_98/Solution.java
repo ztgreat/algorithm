@@ -20,6 +20,7 @@ class Node {
 
 class Solution {
 
+    // 用于记录 是否访问过，因为节点的数据可能为负数，因此这里不使用数组
     private HashMap<Integer, Node> map;
 
     public Node cloneGraph(Node node) {
@@ -40,12 +41,12 @@ class Solution {
         }
         map.put(target.val, root);
         root.val = target.val;
-
         if (target.neighbors == null || target.neighbors.isEmpty()) {
             return;
         }
         for (Node node : target.neighbors) {
 
+            // 判断是否访问过
             if (map.get(node.val) != null) {
                 root.neighbors.add(map.get(node.val));
                 continue;
