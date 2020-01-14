@@ -1,4 +1,4 @@
-package com.github.ztgreat.dfs.leetcode_133.leetcode_98;
+package com.github.ztgreat.dfs.leetcode_133;
 
 
 import java.util.ArrayList;

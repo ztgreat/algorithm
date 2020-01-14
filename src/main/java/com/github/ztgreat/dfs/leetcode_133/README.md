@@ -5,7 +5,7 @@
 
 
 
-![113_sample](./113_sample.png)
+![113_sample](113_sample.png)
 
 ```
 输入：
