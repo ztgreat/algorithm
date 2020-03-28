@@ -1,4 +1,4 @@
-package com.github.ztgreat.dfs.leetcode_337.leetcode_199;
+package com.github.ztgreat.dfs.leetcode_337;
 
 
 class TreeNode {
