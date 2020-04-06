@@ -1,5 +1,14 @@
-package com.github.ztgreat.dfs.leetcode_111;
+package com.github.ztgreat.dfs.leetcode_109.leetcode_111;
 
+
+class ListNode {
+    int val;
+    ListNode next;
+
+    ListNode(int x) {
+        val = x;
+    }
+}
 
 class TreeNode {
     int val;
@@ -12,33 +21,7 @@ class TreeNode {
 }
 
 class Solution {
+    public TreeNode sortedListToBST(ListNode head) {
 
-    /**
-     * 前序遍历 + 减支
-     */
-    private int cnt;
-    public int minDepth(TreeNode root) {
-        if (root == null) {
-            return 0;
-        }
-        cnt = Integer.MAX_VALUE;
-        preOrder(root, 0, root);
-        return cnt;
-    }
-
-    private void preOrder(TreeNode root, int deep, TreeNode parent) {
-
-        if (root == null) {
-            if (parent.left == null && parent.right == null) {
-                cnt = Math.min(cnt, deep);
-            }
-            return;
-        }
-        if (cnt < deep) {
-            return;
-        }
-
-        preOrder(root.left, deep + 1, root);
-        preOrder(root.right, deep + 1, root);
     }
 }
