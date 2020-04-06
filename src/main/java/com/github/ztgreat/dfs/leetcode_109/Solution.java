@@ -1,4 +1,4 @@
-package com.github.ztgreat.dfs.leetcode_109.leetcode_111;
+package com.github.ztgreat.dfs.leetcode_109;
 
 
 class ListNode {
