@@ -1,23 +1,20 @@
 package com.github.ztgreat.dfs.leetcode_491;
 
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.List;
+import java.util.*;
 
 class Solution {
 
     List<Integer> current;
-
+    Set<List<Integer>> filter;
     public List<List<Integer>> findSubsequences(int[] nums) {
 
         if (nums == null || nums.length == 0 || nums.length == 1) {
             return Collections.emptyList();
         }
-        Arrays.sort(nums);
         List<List<Integer>> result = new ArrayList<>();
         current = new ArrayList<>();
+        filter = new HashSet<>();
         dfs(0, nums, result);
         return result;
     }
@@ -34,25 +31,20 @@ class Solution {
                 dfs(i + 1, nums, result);
                 current.remove(current.size() - 1);
             } else {
+                // 剪枝
                 if ((current.size() + (nums.length - i) >= 2)) {
-                    current.add(nums[i]);
-                    if(current.size()>=2){
-                        result.add(current);
-                        current = new ArrayList<>(current);
-                    }
-                    dfs(i + 1, nums, result);
-                    current.remove(current.size() - 1);
-                    if (i + 1 < nums.length && nums[i] == nums[i + 1]) {
-                        i++;
+                    if(current.isEmpty()  || current.get(current.size()-1)<=nums[i]  ){
+                        current.add(nums[i]);
+                        if(current.size()>=2  && !filter.contains(current)){
+                            result.add(current);
+                            filter.add(current);
+                            current = new ArrayList<>(current);
+                        }
+                        dfs(i + 1, nums, result);
+                        current.remove(current.size() - 1);
                     }
                 }
             }
         }
-    }
-
-    public static void main(String[] args) {
-
-        int[] a = {4, 6, 7, 7};
-        System.out.println(new Solution().findSubsequences(a));
     }
 }
