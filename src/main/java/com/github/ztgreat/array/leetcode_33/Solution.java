@@ -1,4 +1,4 @@
-package com.github.ztgreat.array.leetcode_33.leetcode_31;
+package com.github.ztgreat.array.leetcode_33;
 
 /**
  * 二分搜索 变形
