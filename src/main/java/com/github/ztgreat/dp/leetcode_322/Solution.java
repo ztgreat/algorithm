@@ -13,7 +13,7 @@ class Solution {
             }
             return -1;
         }
-        //dp[i][j] 表示  前 j 个 硬币 拼成 j 所需要的最少的硬币
+        //dp[i][j] 表示  前 j 个 硬币 拼成 i 所需要的最少的硬币
         // dp[i][j]= min(dp[i][j-1],dp[i-coins[j]][j]+1)  && dp[i-coins[j]][j] 可以拼成
         int[][] dp = new int[amount + 1][coins.length];
 
