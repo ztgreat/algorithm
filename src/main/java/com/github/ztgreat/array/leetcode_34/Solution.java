@@ -1,4 +1,4 @@
-package com.github.ztgreat.array.leetcode_34.leetcode_33;
+package com.github.ztgreat.array.leetcode_34;
 
 
 import java.util.ArrayList;
@@ -53,6 +53,4 @@ class Solution {
             binarySearch(mid + 1, b, nums, target);
         }
     }
-}
-
 }
