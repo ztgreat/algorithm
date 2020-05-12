@@ -1,4 +1,4 @@
-package com.github.ztgreat.dp.leetcode_55.leetcode_53;
+package com.github.ztgreat.dp.leetcode_55;
 
 
 /**
