@@ -1,4 +1,4 @@
-package com.github.ztgreat.string.leetcode_567.leetcode_438;
+package com.github.ztgreat.string.leetcode_567;
 
 
 import java.util.HashMap;
